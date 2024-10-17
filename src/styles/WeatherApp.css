@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+    --orangeA: #DEAB4D;
+    --orangeB: #F5B747;
+    --orangeC: #DEA02E;
+    --orangeD: #D69E36;
+    --brown: #2B261D;
+    --white: #FFFFFF;
+    --gray: #403B45;
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    background-color: var(--orangeD);
+    color: var(--white);
+}
+
+.container {
+    width: 1600px;
+    margin: 50px auto;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--orangeA);
+    padding: 5rem;
+    border-radius: 5rem;
+}
+
+#header .left-header .city-name p {
+    font-size: 2.4rem;
+    margin-bottom: .8rem;
+} 
+
+#header .left-header .input input, 
+#header .left-header .input button {
+    padding: 1.2rem 1.6rem;
+    border: none;
+    border-radius: 3px;
+    font-size: 1.6rem;
+}
+
+#header .left-header .input input {
+    margin-right: 5px;
+    transition: box-shadow .2s ease-in;
+}
+
+#header .left-header .input input:focus {
+    outline: none;
+    box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.6); /* Gölge efekti ekler */
+}
+
+
+#header .left-header .input button {
+    background-color: var(--white);
+    cursor: pointer;
+    padding: 1.2rem 1rem;
+    transition: all .2s linear;
+}
+
+#header .left-header .input button:hover {
+    background-color: var(--brown);
+    color: var(--white);
+}
+
+#header .left-header .input button i {
+    font-size: 1.8rem;
+    margin-right: .5rem;
+}
+
+#header .left-header .base-info {
+    margin-top: 15rem;
+}
+
+#header .left-header .base-info p {
+    font-size: 7rem;
+}
+
+#header .left-header .base-info p:nth-child(3) {
+    font-size: 1.4rem;
+    letter-spacing: .3rem;
+}
+
