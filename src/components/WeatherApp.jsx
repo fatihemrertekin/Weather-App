@@ -10,11 +10,11 @@ const WeatherApp = () => {
     const [weatherData, setweatherData] = useState([])
     const [imageData, setimageData] = useState([])
 
-    useEffect(() => {
-        axios.get(`https://api.openweathermap.org/data/2.5/weather?q=istanbul&units=metric&lang=tr&appid=${openApi}`)
-        .then(response => setweatherData(response.data))
-        .catch(error => console.error(error))
-    }, [])
+    // useEffect(() => {
+    //     axios.get(`https://api.openweathermap.org/data/2.5/weather?q=istanbul&units=metric&lang=tr&appid=${openApi}`)
+    //     .then(response => setweatherData(response.data))
+    //     .catch(error => console.error(error))
+    // }, [])
 
     useEffect(() => {
         axios.get(`https://api.unsplash.com/search/photos?query=istanbul&client_id=${unsplashApi}`)
@@ -32,7 +32,7 @@ const WeatherApp = () => {
                     </div>
                     <div className="input">
                         <input type="text" placeholder="Şehir Giriniz"/>
-                        <button type="button" className="input-btn"><i class="fa-solid fa-magnifying-glass-location"></i>Ara</button>
+                        <button type="button" className="input-btn"><i className="fa-solid fa-magnifying-glass-location"></i>Ara</button>
                     </div>
                     <div className="base-info">
                         <p>Cloudy</p>
@@ -97,7 +97,7 @@ const WeatherApp = () => {
                         </div>
                     </div>
                     <div className="bottom">
-
+                        
                     </div>
                 </div>
             </div>

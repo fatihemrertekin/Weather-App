@@ -27,7 +27,7 @@ body {
 }
 
 .container {
-    width: 1600px;
+    width: 80% !important;
     margin: 50px auto;
 }
 
@@ -93,3 +93,51 @@ body {
     letter-spacing: .3rem;
 }
 
+#main {
+    display: flex;
+    margin-top: 3rem;
+}
+
+.left-main {
+    margin-right: 3rem;
+    width: 30%;
+}
+
+.left-main .image-container {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--orangeA); 
+    padding: 5rem;
+    border-radius: 5rem;
+}
+
+.left-main .image-container .city-image:nth-child(2) {
+    margin-bottom: 0rem;
+}
+
+.left-main .image-container .city-image {
+    width: 100%;
+    height: 20rem; 
+    object-fit: cover; 
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+}
+
+.right-main {
+    width: 70%;
+    background-color: var(--orangeA);
+    border-radius: 5rem;
+    padding: 5rem;
+}
+
+.right-main .top {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    font-size: 1.6rem;
+}
+
+.right-main .top .name,
+.right-main .top i {
+    margin-bottom: 1rem;
+}
