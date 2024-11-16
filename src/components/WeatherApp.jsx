@@ -74,13 +74,13 @@ const WeatherApp = () => {
     return (
         <div>
             <video autoPlay loop muted className="background-video">
-                <source src="/src/assets/images/son.mp4" type="video/mp4" />
+                <source src="/public/assets/videos/son.mp4" type="video/mp4" />
             </video>
             {weatherData ? (
                 <div className="container">
                     <div id="header">
                         <video autoPlay loop muted className="main-video">
-                            <source src="/src/assets/images/son.mp4" type="video/mp4" />
+                            <source src="/public/assets/videos/son.mp4" type="video/mp4" />
                         </video>
                         <div className="left-header">
                             <div className="city-name">
@@ -113,7 +113,7 @@ const WeatherApp = () => {
                     <div id="main">
                         <div className="left-main">
                             <video autoPlay loop muted className="main-video">
-                                <source src="/src/assets/images/son.mp4" type="video/mp4" />
+                                <source src="/public/assets/videos/son.mp4" type="video/mp4" />
                             </video>
                             <div className="image-container">
                                 {imageData && imageData.results && imageData.results[1] ? (
@@ -136,7 +136,7 @@ const WeatherApp = () => {
                         </div>
                         <div className="right-main">
                             <video autoPlay loop muted className="main-video">
-                                <source src="/src/assets/images/son.mp4" type="video/mp4" />
+                                <source src="/public/assets/videos/son.mp4" type="video/mp4" />
                             </video>
                             <div className="top">
                                 <div className="feels-like">
