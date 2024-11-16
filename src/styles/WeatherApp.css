@@ -31,10 +31,68 @@ body {
     margin: 50px auto;
 }
 
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Videoyu ekranı kaplayacak şekilde ayarla */
+    z-index: -1; /* İçeriğin altında kalmasını sağla */
+}
+
+.main-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Videoyu ekranı kaplayacak şekilde ayarla */
+    z-index: -1; /* İçeriğin altında kalmasını sağla */
+    border-radius: 5rem;
+}
+
+.left-main-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Videoyu ekranı kaplayacak şekilde ayarla */
+    z-index: -1; /* İçeriğin altında kalmasını sağla */
+    border-radius: 5rem;
+}
+
+.right-main-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Videoyu ekranı kaplayacak şekilde ayarla */
+    z-index: -1; /* İçeriğin altında kalmasını sağla */
+    border-radius: 5rem;
+}
+
+.loading {
+    font-size: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.error-message {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
 #header {
+    position: relative;
     display: flex;
     justify-content: space-between;
-    background-color: var(--orangeA);
+    background-color: transparent;
     padding: 5rem;
     border-radius: 5rem;
 }
@@ -82,10 +140,11 @@ body {
 
 #header .left-header .base-info {
     margin-top: 15rem;
+    text-transform: capitalize;
 }
 
 #header .left-header .base-info p {
-    font-size: 7rem;
+    font-size: 6rem;
 }
 
 #header .left-header .base-info p:nth-child(3) {
@@ -99,6 +158,7 @@ body {
 }
 
 .left-main {
+    position: relative;
     margin-right: 3rem;
     width: 30%;
 }
@@ -106,7 +166,7 @@ body {
 .left-main .image-container {
     display: flex;
     flex-direction: column;
-    background-color: var(--orangeA); 
+    background-color: transparent; 
     padding: 5rem;
     border-radius: 5rem;
 }
@@ -124,8 +184,9 @@ body {
 }
 
 .right-main {
+    position: relative;
     width: 70%;
-    background-color: var(--orangeA);
+    background-color: transparent;
     border-radius: 5rem;
     padding: 5rem;
 }
@@ -137,7 +198,9 @@ body {
     font-size: 1.6rem;
 }
 
+
 .right-main .top .name,
 .right-main .top i {
     margin-bottom: 1rem;
+    font-weight: 600;
 }
