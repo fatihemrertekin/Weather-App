@@ -112,7 +112,7 @@ const WeatherApp = () => {
                     </div>
                     <div id="main">
                         <div className="left-main">
-                            <video autoPlay loop muted className="left-main-video">
+                            <video autoPlay loop muted className="main-video">
                                 <source src="/src/assets/images/son.mp4" type="video/mp4" />
                             </video>
                             <div className="image-container">
@@ -135,7 +135,7 @@ const WeatherApp = () => {
                             </div>
                         </div>
                         <div className="right-main">
-                            <video autoPlay loop muted className="right-main-video">
+                            <video autoPlay loop muted className="main-video">
                                 <source src="/src/assets/images/son.mp4" type="video/mp4" />
                             </video>
                             <div className="top">
