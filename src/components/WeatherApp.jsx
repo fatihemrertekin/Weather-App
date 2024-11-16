@@ -3,6 +3,9 @@ import axios from "axios";
 import { formatDate } from "../utils/helpers";
 import { isValidCity } from "../utils/helpers";
 import "../styles/WeatherApp.css"
+// src/App.jsx veya ilgili bileşen dosyanızda
+import sonVideo from '/assets/videos/son.mp4'; // build aşamasında videoların yüklenmeme sorununun çözümü burada yolu vermekten ibaretmiş baya zamanımı aldı eğer netlifyda kullandığım video gelmezse bu şekilde çözülüyor.
+
 
 const WeatherApp = () => {
 
@@ -74,13 +77,13 @@ const WeatherApp = () => {
     return (
         <div>
             <video autoPlay loop muted className="background-video">
-                <source src="/public/assets/videos/son.mp4" type="video/mp4" />
+                <source src={sonVideo} type="video/mp4" />
             </video>
             {weatherData ? (
                 <div className="container">
                     <div id="header">
                         <video autoPlay loop muted className="main-video">
-                            <source src="/public/assets/videos/son.mp4" type="video/mp4" />
+                            <source src={sonVideo} type="video/mp4" />
                         </video>
                         <div className="left-header">
                             <div className="city-name">
@@ -113,7 +116,7 @@ const WeatherApp = () => {
                     <div id="main">
                         <div className="left-main">
                             <video autoPlay loop muted className="main-video">
-                                <source src="/public/assets/videos/son.mp4" type="video/mp4" />
+                                <source src={sonVideo} type="video/mp4" />
                             </video>
                             <div className="image-container">
                                 {imageData && imageData.results && imageData.results[1] ? (
@@ -136,7 +139,7 @@ const WeatherApp = () => {
                         </div>
                         <div className="right-main">
                             <video autoPlay loop muted className="main-video">
-                                <source src="/public/assets/videos/son.mp4" type="video/mp4" />
+                                <source src={sonVideo} type="video/mp4" />
                             </video>
                             <div className="top">
                                 <div className="feels-like">
