@@ -6,8 +6,20 @@ export const formatDate = (timestamp) => {
         month: "long",
         year: "numeric",
     });
-    return `${day} | ${formattedDate}`;
+    return `${day}`;
 };
+
+export const formatTemp = (temp) => {
+    const integerPart = Math.floor(temp);
+    return integerPart;
+}
+
+export const formatWind = (wind) => {
+    const speedInMetersPerSecond = wind; // m/s
+    const speedInKmPerHour = speedInMetersPerSecond * 3.6;
+    const onlyInteger = Math.floor(speedInKmPerHour)
+    return onlyInteger;
+}
 
 export const isValidCity = (cityName) => {
     const cities = [

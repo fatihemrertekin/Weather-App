@@ -1,55 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
-:root {
-    --orangeA: #DEAB4D;
-    --orangeB: #F5B747;
-    --orangeC: #DEA02E;
-    --orangeD: #D69E36;
-    --brown: #2B261D;
-    --white: #FFFFFF;
-    --gray: #403B45;
-  }
+@import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Inter", sans-serif;
 }
+
+:root {
+    --mavi: #0052A4; /* Ana renk */
+    --acık-mavi: #4484c4;
+    --siyah: #000000; /* İkincil renk */
+    --beyaz: #FFFFFF; /* Yazı rengi */
+    --gri: #808080; /* Arka plan rengi */
+    --acık-gri: #DDDDDD;
+    --kapalı-gri: #616161;
+}
+
 
 html {
     font-size: 10px;
 }
 
 body {
-    background-color: var(--orangeD);
-    color: var(--white);
-}
-
-.container {
-    width: 80% !important;
-    margin: 50px auto;
-}
-
-.background-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Videoyu ekranı kaplayacak şekilde ayarla */
-    z-index: -1; /* İçeriğin altında kalmasını sağla */
-}
-
-.main-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Videoyu ekranı kaplayacak şekilde ayarla */
-    z-index: -1; /* İçeriğin altında kalmasını sağla */
-    border-radius: 5rem;
+    font-size: 1.6rem;
+    background-image: url(../assets/images/gokyuzu.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; /* Resmi ortala */
+    background-attachment: fixed; /* Arka planı sabit tut */
 }
 
 .loading {
@@ -63,122 +41,421 @@ body {
 .error-message {
     font-size: 1.3rem;
     font-weight: bold;
-    margin-top: 5px;
-}
-
-#header {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    background-color: transparent;
-    padding: 5rem;
-    border-radius: 5rem;
-}
-
-#header .left-header .city-name p {
-    font-size: 2.4rem;
-    margin-bottom: .8rem;
-} 
-
-#header .left-header .input input, 
-#header .left-header .input button {
-    padding: 1.2rem 1.6rem;
-    border: none;
-    border-radius: 3px;
-    font-size: 1.6rem;
-}
-
-#header .left-header .input input {
-    margin-right: 5px;
-    transition: box-shadow .2s ease-in;
-}
-
-#header .left-header .input input:focus {
-    outline: none;
-    box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.6); /* Gölge efekti ekler */
+    color: var(--beyaz);
 }
 
 
-#header .left-header .input button {
-    background-color: var(--white);
-    cursor: pointer;
-    padding: 1.2rem 1rem;
-    transition: all .2s linear;
+/* Font Types */
+
+.saira-condensed-bold {
+    font-family: "Saira Condensed", sans-serif;
+    font-weight: 700;
+    font-style: normal;
 }
 
-#header .left-header .input button:hover {
-    background-color: var(--brown);
-    color: var(--white);
+.afacad-regular {
+    font-family: "Afacad", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
 }
 
-#header .left-header .input button i {
-    font-size: 1.8rem;
-    margin-right: .5rem;
-}
-
-#header .left-header .base-info {
-    margin-top: 15rem;
-    text-transform: capitalize;
-}
-
-#header .left-header .base-info p {
-    font-size: 6rem;
-}
-
-#header .left-header .base-info p:nth-child(3) {
-    font-size: 1.4rem;
-    letter-spacing: .3rem;
-}
-
-#main {
-    display: flex;
-    margin-top: 3rem;
-}
-
-.left-main {
-    position: relative;
-    margin-right: 3rem;
-    width: 30%;
-}
-
-.left-main .image-container {
-    display: flex;
-    flex-direction: column;
-    background-color: transparent; 
-    padding: 5rem;
-    border-radius: 5rem;
-}
-
-.left-main .image-container .city-image:nth-child(2) {
-    margin-bottom: 0rem;
-}
-
-.left-main .image-container .city-image {
-    width: 100%;
-    height: 20rem; 
-    object-fit: cover; 
-    border-radius: 1rem;
-    margin-bottom: 2rem;
-}
-
-.right-main {
-    position: relative;
-    width: 70%;
-    background-color: transparent;
-    border-radius: 5rem;
-    padding: 5rem;
-}
-
-.right-main .top {
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    font-size: 1.6rem;
-}
-
-
-.right-main .top .name,
-.right-main .top i {
-    margin-bottom: 1rem;
+.afacad-bold {
+    font-family: "Afacad", sans-serif;
+    font-optical-sizing: auto;
     font-weight: 600;
+}
+
+/* Navbar */
+
+nav {
+    background-color: transparent !important;
+}
+
+.logo {
+    font-size: 5.6rem;
+    margin-right: 4rem !important;
+    color: var(--mavi);
+}
+
+.logo:hover {
+    color: var(--mavi);
+}
+
+.logo:focus  {
+    color: var(--mavi);
+    outline: none;
+}
+
+.navbar-brand-span {
+    color: var(--beyaz);
+}
+
+input[type="search"] {
+    border: none;
+    border-top-left-radius: 5rem;
+    border-bottom-left-radius: 5rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: 1rem;
+    font-size: 1.6rem;
+    padding-left: 2.5rem;
+    caret-color: var(--gri); /* İmleç rengini kırmızı yapar */
+    color: var(--kapalı-gri) !important;
+}
+
+input[type="search"]:focus {
+    box-shadow: none;
+}
+
+input[type="search"]::placeholder {
+    color: var(--gri);
+}
+
+button[type="submit"] {
+    border: none;
+    border-left: 1px solid #e6e6e6 !important;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 5rem;
+    border-bottom-right-radius: 5rem;
+    padding: 1rem;
+    background-color: var(--beyaz);
+}
+
+button[type="submit"]:hover {
+    background-color: var(--mavi);
+}
+
+button[type="submit"]:active {
+    transition: all 0s ease-in !important;
+    background-color: var(--acık-mavi) !important;
+}
+
+button[type="submit"]:hover .search-icon {
+    fill: var(--beyaz);
+    transition: all 0.3s ease;
+}
+
+.search-icon {
+    fill: #a8a8a8;
+}
+
+button[type="button"] {
+    border: none;
+    padding: 0;
+}
+
+button.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+button.navbar-toggler:active svg {
+    transition: all .1s ease;
+    fill: var(--mavi);
+}
+
+ul {
+    margin-top: 1.5rem;
+    margin-left: .5rem;
+}
+
+ul li a {
+    color: var(--beyaz) !important;
+    margin-left: 2rem;
+    font-weight: 500 !important;
+}
+
+ul li a:hover {
+    color: var(--mavi) !important;
+}
+
+/* Main section */
+
+main {
+    background-color: var(--beyaz);
+    border-radius: .5rem;
+    width: 128rem;
+    box-shadow: 0px 4px 100px #5d9ac5;
+    padding: 2rem !important;
+}
+
+/* Top section */
+
+.top-section {
+    font-size: 1.8rem;
+}
+
+/* Main top left section */
+
+.top-left-section .city-name-day p {
+    color: var(--mavi);
+}
+
+.top-left-section .city-name-day p span{
+    color: var(--gri);
+    margin-left: .5rem;
+}
+
+.top-left-section .icon-degree .weather-icon {
+    background-color: var(--mavi);
+    width: 7rem;
+    height: 7rem;
+    border-radius: 100%;
+
+}
+
+.top-left-section .icon-degree h1 {
+    font-size: 9.6rem;
+    font-weight: 600;
+    line-height: 7rem;
+    margin-left: 1rem;
+    color: var(--mavi);
+}
+
+.top-left-section .icon-degree  span {
+    font-size: 2rem;
+    color: var(--mavi);
+}
+
+.top-left-section p {
+    color: var(--gri);
+}
+
+/* Main top right section */
+
+.top-right-section p{
+    color: var(--gri);
+    margin: 0;
+}
+
+/* Main mid section */
+.mid-section {
+    margin-top: 3rem;
+    border-top: 1px solid var(--acık-gri) !important;
+    height: 18rem;
+}
+
+.mid-section h2 {
+    font-size: 4rem;
+    font-family: "Saira Condensed", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    padding-right: 5rem;
+    color: var(--gri);
+}
+
+.mid-section h2 span {
+    color: var(--mavi);
+}
+
+.mid-section p {
+    padding-left: 1rem;
+    border-left: 1px solid var(--acık-gri) !important;
+    width: 70%;
+    color: var(--gri);
+}
+
+.mid-section {
+    overflow-y: scroll;
+}
+
+.mid-section::-webkit-scrollbar {
+    width: .6rem;
+}
+
+.mid-section::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #216FFF, #00D03E, #FFB62E, #FE3737);
+    border-radius: 1rem;
+
+}
+
+/* ColorSlider Component */
+
+.slider-container p {
+    color: var(--gri);
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.weather-slider {
+    -webkit-appearance: none; /* Tarayıcı varsayılan stilini kaldır */
+    appearance: none;
+    width: 100%;
+    height: .8rem;
+    background: linear-gradient(to right, #216FFF, #00D03E, #FFB62E, #FE3737);
+    border-radius: 2rem;
+    outline: none;
+}
+
+.weather-slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Tarayıcı varsayılan thumb stilini kaldır */
+    appearance: none;
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 50%;
+    background: white;
+    border: 3px solid orange;
+    cursor: pointer;
+}
+
+.weather-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid orange;
+    cursor: pointer;
+}
+
+.slider-labels {
+    color: var(--gri);
+}
+
+/* Bottom section and cards */
+
+.bottom-section {
+    flex-wrap: nowrap; /* Flex öğeler sarılmayacak */
+    overflow-x: scroll; /* Yatay kaydırma */
+    overflow-y: hidden;
+    width: 100% !important; /* Kapsayıcı genişliğini azalt */
+    max-width: 100%; /* Responsive tasarımı destekle */
+    padding: 2rem 0rem;
+}
+
+.bottom-section::-webkit-scrollbar {
+    height: .6rem;
+    
+}
+
+.bottom-section::-webkit-scrollbar-track {
+    background: var(--acık-gri);
+}
+
+.bottom-section::-webkit-scrollbar-thumb {
+    background: linear-gradient(to left, #216FFF, #00D03E, #FFB62E, #FE3737);
+    border-radius: 1rem;
+
+}
+
+/* Genişlik 1400px'den büyük olduğunda */
+@media (min-width: 1400px) {
+    .card-cols {
+        margin-right: 2rem;
+    }
+
+    .card-cols a {
+        width: 24rem;
+    }
+
+    .card-cols:last-child {
+        margin-right: 0px;
+    }
+}
+
+/* Genişlik 1400px'den büyük olduğunda */
+@media (min-width: 1200px) and (max-width: 1399px){
+    .card-cols {
+        margin-right: 2.5rem;
+    }
+
+    .card-cols a {
+        width: 20rem;
+    }
+
+    .card-cols:last-child {
+        margin-right: 0px;
+    }
+}
+
+/* Genişlik 1400px'den büyük olduğunda */
+@media (min-width: 992px) and (max-width: 1199px){
+    .card-cols {
+        margin-right: 2.5rem;
+    }
+
+    .card-cols a {
+        width: 16.4rem;
+    }
+
+    .card-cols:last-child {
+        margin-right: 0px;
+    }
+}
+
+/* Genişlik 1400px'den büyük olduğunda */
+@media (min-width: 768px) and (max-width: 991px){
+    .card-cols {
+        margin-right: 1.5rem;
+    }
+
+    .card-cols a {
+        width: 16.4rem;
+    }
+
+    .card-cols:last-child {
+        margin-right: 0px;
+    }
+}
+
+/* Genişlik 1400px'den büyük olduğunda */
+@media (min-width: 576px) and (max-width: 767px){
+    .card-cols {
+        margin-right: 1rem;
+    }
+
+    .card-cols a {
+        width: 16.4rem;
+    }
+
+    .card-cols:last-child {
+        margin-right: 0px;
+    }
+}
+
+/* Genişlik 1400px'den büyük olduğunda */
+@media (max-width: 576px) {
+    .card-cols {
+        margin-right: 1rem;
+    }
+
+    .card-cols a {
+        width: 12rem;
+    }
+
+    .card-cols:last-child {
+        margin-right: 0px;
+    }
+}
+
+.card {
+    border-radius: 1.5rem;
+}
+
+.card-cols .card-title{
+    font-size: 1.6rem;
+    color: var(--acık-mavi);
+    margin-bottom: 1rem;
+}
+
+.card-cols .card-title span {
+    font-weight: 400;
+}
+
+.card-cols .degree {
+    margin-top: .5rem;
+}
+
+.card-cols .degree span:nth-child(1) {
+    font-size: 2.4rem;
+    line-height: 3rem;
+    margin-right: .5rem;
+    color: var(--mavi);
+}
+
+.card-cols .degree span:nth-child(2) {
+    color: var(--gri);
+}
+
+main .data {
+    color: var(--gri);
 }
