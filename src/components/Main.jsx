@@ -1,12 +1,14 @@
 import Card from "./Card";
 import ColorSlider from "./ColorSlider";
-import { formatDate, formatTemp, formatWind } from "../utils/helpers";
+import { formatDateforDay, formatTemp, formatWind, processDailyWeather } from "../utils/helpers";
 import { isValidCity } from "../utils/helpers";
 import { useEffect, useState } from "react";
 
-function Main({ weatherData }) {
+function Main({ weatherData, weatherFiveData }) {
 
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+    const dailyWeather = processDailyWeather(weatherFiveData);
+    console.log(dailyWeather);
 
     const handleResize = () => {
         const isMobileView = window.innerWidth < 768;
@@ -29,7 +31,7 @@ function Main({ weatherData }) {
                             <p>
                                 {weatherData.name}, TR
                                 <span className="afacad-regular text-capitalize">
-                                    {formatDate(weatherData.dt)} | {weatherData.weather[0].description}
+                                    {formatDateforDay(weatherData.dt)} | {weatherData.weather[0].description}
                                 </span>
 
                             </p>
@@ -39,7 +41,7 @@ function Main({ weatherData }) {
                                 <img className="weather-icon" src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`} alt="hava durumu" />
                                 <h1>
                                     {isMobile ? formatTemp(weatherData.main.temp) : weatherData.main.temp}
-                                    
+
                                 </h1>
                             </div>
                             <span>°C</span>
@@ -64,11 +66,16 @@ function Main({ weatherData }) {
                 </div>
                 <ColorSlider value={weatherData.main.temp} />
                 <div className="bottom-section d-flex">
-                    <Card weatherData={weatherData}/>
-                    <Card weatherData={weatherData}/>
-                    <Card weatherData={weatherData}/>
-                    <Card weatherData={weatherData}/>
-                    <Card weatherData={weatherData}/>
+                    {dailyWeather.map((day, index) => (
+                        <Card
+                            key={index}
+                            day={day.dayName}
+                            date={day.dayNumber}
+                            minTemp={Math.round(day.minTemp)}
+                            maxTemp={Math.round(day.maxTemp)}
+                            icon={day.icon}
+                        />
+                    ))}
                 </div>
                 <p className="mt-5 data">Data from openweathermap.org </p>
             </main>

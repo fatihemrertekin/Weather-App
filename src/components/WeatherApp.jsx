@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { formatDate } from "../utils/helpers";
+import { formatDateforDay } from "../utils/helpers";
 import { isValidCity } from "../utils/helpers";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
@@ -16,9 +16,9 @@ const WeatherApp = () => {
 
     const openApi = import.meta.env.VITE_OPEN_API_KEY;
 
-    const [weatherData, setWeatherData] = useState(null)
-    const [weatherFiveData, setweatherFiveData] = useState(null)
-    const [city, setCity] = useState("İSTANBUL"); // Varsayılan şehir
+    const [weatherData, setWeatherData] = useState(null);
+    const [weatherFiveData, setweatherFiveData] = useState(null);
+    const [city, setCity] = useState("istanbul"); // Varsayılan şehir
     const [country, setCountry] = useState("TR");
     const [searchCity, setSearchCity] = useState(""); // Kullanıcıdan alınan şehir
     const [error, setError] = useState(null); // Hata mesajlarını saklamak için
@@ -89,14 +89,14 @@ const WeatherApp = () => {
 
     return (
         <div>
-            {weatherData ? (
+            {(weatherData && weatherFiveData) ? (
                 <div className="afacad-regular">
                     <Navbar 
                         searchCity={searchCity}
                         setSearchCity={setSearchCity}
                         handleSubmit={handleSubmit}
                         error={error}/>
-                    <Main weatherData={weatherData}/>
+                    <Main weatherData={weatherData} weatherFiveData={weatherFiveData}/>
                 </div>
             ) : (
                 <div className="loading d-flex justify-content-center align-items-center">

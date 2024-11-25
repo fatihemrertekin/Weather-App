@@ -1,13 +1,16 @@
-export const formatDate = (timestamp) => {
+export const formatDateforDay = (timestamp) => {
     const date = new Date(timestamp * 1000);
     const day = date.toLocaleDateString("tr-TR", { weekday: "long" });
+    return day;
+};
+
+export const formatDateforDayNumber = (timestamp) => {
+    const date = new Date(timestamp * 1000);
     const formattedDate = date.toLocaleDateString("tr-TR", {
         day: "2-digit",
-        month: "long",
-        year: "numeric",
     });
-    return `${day}`;
-};
+    return formattedDate;
+}
 
 export const formatTemp = (temp) => {
     const integerPart = Math.floor(temp);
@@ -40,4 +43,50 @@ export const isValidCity = (cityName) => {
     const normalizedCities = cities.map(normalizeCityName);
 
     return normalizedCities.includes(normalizedCity);
+};
+
+// Günlük veriyi işleme fonksiyonu
+export const processDailyWeather = (weatherFiveData) => {
+    const daysOfWeek = ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"];
+
+    return Object.values(
+        weatherFiveData.list.reduce((acc, item) => {
+            const date = new Date(item.dt_txt);
+            const dayKey = date.toISOString().split("T")[0];
+            const dayName = daysOfWeek[date.getDay()];
+            const dayNumber = date.getDate();
+
+            // Gün için yeni bir obje oluştur veya güncelle
+            if (!acc[dayKey]) {
+                acc[dayKey] = {
+                    dayName,
+                    dayNumber,
+                    minTemp: item.main.temp_min,
+                    maxTemp: item.main.temp_max,
+                    icons: [item.weather[0].icon],
+                };
+            } else {
+                acc[dayKey].minTemp = Math.min(acc[dayKey].minTemp, item.main.temp_min);
+                acc[dayKey].maxTemp = Math.max(acc[dayKey].maxTemp, item.main.temp_max);
+                acc[dayKey].icons.push(item.weather[0].icon);
+            }
+
+            return acc;
+        }, {})
+    ).map(day => {
+        // Günlük iconlardan en yaygın olanını seç
+        const mostCommonIcon = day.icons.reduce(
+            (prev, curr, _, arr) =>
+                arr.filter(icon => icon === curr).length > arr.filter(icon => icon === prev).length ? curr : prev,
+            day.icons[0]
+        );
+
+        return {
+            dayName: day.dayName,
+            dayNumber: day.dayNumber,
+            minTemp: day.minTemp,
+            maxTemp: day.maxTemp,
+            icon: mostCommonIcon,
+        };
+    });
 };
